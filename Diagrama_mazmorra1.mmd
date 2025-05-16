@@ -1,0 +1,116 @@
+classDiagram
+direction TB
+    class Enemigo {
+	    - tipo: TipoEnemigo
+    }
+
+    class Arma {
+    }
+
+    class Armadura {
+    }
+
+    class Pocion {
+    }
+
+    class Accesorio {
+    }
+
+    class Soldado {
+    }
+
+    class MiniJefe {
+    }
+
+    class Jefe {
+    }
+
+    class Mazmorra {
+	    - salas: vector
+	    + iniciarRecorrido(jugador: Jugador&)
+	    + avanzarSala()
+	    + salaActual() : Sala*
+	    + salaCompleta()
+    }
+
+    class Heroe {
+	    - inventario: vector
+	    + equipar(item: Item*)
+	    + usarPocion()
+    }
+
+    class Sala {
+	    - numero: int
+	    - enemigo: Enemigo*
+	    - recompensa: Item*
+	    + iniciarBatalla(grupo: vector)
+	    + aumentarDefensa(heroe:Personaje)
+	    + aumentarAtaque(heroe:Personaje)
+    }
+
+    class Jugador {
+	    - alias: string
+	    - heroes: vector
+	    - score: int
+	    + elegirHeroes()
+    }
+
+    class Score {
+	    - alias: string
+	    - fechaHora: string
+	    - salaMaxima: int
+	    - saludPerdida: int
+    }
+
+    class Personaje {
+	    - nombre: string
+	    - hp: int
+	    - atk: int
+	    - def: int
+	    - spd: int
+	    - lck: int
+	    + atacar(objetivo: Personaje)
+	    + recibirDaño(cantidad: int)
+	    + estaVivo() : bool
+    }
+
+    class Juego {
+	    - mazmorra: Mazmorra
+	    - lista_enemigos: Enemigo
+	    - ultima_partida : Score
+	    - jugador: Jugador
+	    + iniciar()
+	    + guardarScore()
+	    + mostrarScores()
+	    + mostrarListaEnemigos()
+    }
+
+    class Item {
+	    - nombre: string
+	    - modificadorHP: int
+	    - modificadorAtk: int
+	    - modificadorDef: int
+	    - modificadorSpd: int
+	    - modificadorLck: int
+	    + usarEn(personaje: Heroe&)
+    }
+
+    Personaje <|-- Heroe
+    Personaje <|-- Enemigo
+    Item <|-- Arma
+    Item <|-- Armadura
+    Item <|-- Pocion
+    Item <|-- Accesorio
+    Heroe "1" o-- "*" Item : contiene un inventario
+    Mazmorra "1" o-- "10" Sala : contiene salas
+    Sala "1" --> "1" Enemigo : tiene un enemigo
+    Sala "1" --> "0..1" Item : tiene una recompensa
+    Enemigo <|-- Soldado
+    Enemigo <|-- MiniJefe
+    Enemigo <|-- Jefe
+    Juego --> Jugador
+    Juego --> Mazmorra
+    Juego o-- Enemigo
+    Jugador o-- Heroe
+    Juego "1" --> "*" Score
+

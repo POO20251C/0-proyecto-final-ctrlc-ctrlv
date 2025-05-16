@@ -1,0 +1,142 @@
+classDiagram
+direction TB
+
+class Enemigo {
+    + Enemigo()
+    + void atacar(Personaje&)
+    + void comportamientoEspecial()
+}
+
+class Arma {
+    - int aumentarAtk
+    - int aumentarLck
+    + Arma(string, int, int)
+    + void modificarAtributos(Personaje&)
+}
+
+class Armadura {
+    - int aumentarDef
+    - int aumentarHp
+    + Armadura(string, int, int)
+    + void modificarAtributos(Personaje&)
+}
+
+class Pocion {
+    - int restaurarHp
+    + Pocion(string, int)
+    + void modificarAtributos(Personaje&)
+}
+
+class Accesorio {
+    - int aumentarSpd
+    + Accesorio(string, int)
+    + void modificarAtributos(Personaje&)
+}
+
+class Soldado {
+    + Soldado()
+    + void comportamientoEspecial()
+}
+
+class MiniJefe {
+    + MiniJefe()
+    + void comportamientoEspecial()
+}
+
+class Jefe {
+    + Jefe()
+    + void comportamientoEspecial()
+}
+
+class Mazmorra {
+    - vector<Sala*> salas
+    + Mazmorra()
+    + void iniciarRecorrido(Jugador&)
+    + void avanzarSala()
+    + Sala* salaActual()
+    + void salaCompleta()
+}
+
+class Heroe {
+    - vector<Item*> inventario
+    + Heroe(string)
+    + void equipar(Item*)
+    + void usarPocion()
+}
+
+class Sala {
+    - int numero
+    - Enemigo* enemigo
+    - Item* recompensa
+    + Sala(int, Enemigo*, Item*)
+    + void iniciarBatalla(vector<Personaje*>)
+    + void aumentarDefensa(Personaje)
+    + void aumentarAtaque(Personaje)
+}
+
+class Jugador {
+    - string alias
+    - vector<Personaje*> heroes
+    - int score
+    + Jugador(string)
+    + void elegirHeroes()
+}
+
+class Score {
+    - string alias
+    - string fechaHora
+    - int salaMaxima
+    - int saludPerdida
+    + Score(string, string, int, int)
+}
+
+class Personaje {
+    - string nombre
+    - int hp
+    - int atk
+    - int def
+    - int spd
+    - int lck
+    + Personaje(string, int, int, int, int, int)
+    + void atacar(Personaje)
+    + void recibirDaño(int)
+    + bool estaVivo()
+}
+
+class Juego {
+    - Mazmorra mazmorra
+    - vector<Personaje*> lista_enemigos
+    - Score ultima_partida
+    - Jugador jugador
+    + Juego()
+    + void iniciar()
+    + void guardarScore()
+    + void mostrarScores()
+    + void mostrarListaEnemigos()
+}
+
+class Item {
+    - string nombre
+    + Item(string)
+    + void modificarAtributos(Personaje&)
+}
+
+Personaje <|-- Heroe
+Personaje <|-- Enemigo
+Item <|-- Arma
+Item <|-- Armadura
+Item <|-- Pocion
+Item <|-- Accesorio
+Heroe "1" o-- "*" Item : contiene un inventario
+Mazmorra "1" o-- "10" Sala : contiene salas
+Sala "1" --> "1" Enemigo : tiene un enemigo
+Sala "1" --> "0..1" Item : tiene una recompensa
+Enemigo <|-- Soldado
+Enemigo <|-- MiniJefe
+Enemigo <|-- Jefe
+Juego --> Jugador
+Juego --> Mazmorra
+Juego o-- Enemigo
+Jugador o-- Heroe
+Juego "1" --> "*" Score
+
