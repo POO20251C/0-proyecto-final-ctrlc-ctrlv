@@ -3,17 +3,47 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
+#include <random>
+
 
 Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
-    initHeroes();
+    initHeroPool();    // 6
+    chooseHeroes();    // 3
     initEnemies();
 }
 
-void Game::initHeroes() {
-    heroes.push_back(std::make_shared<Hero>("Archer"));
-    heroes.push_back(std::make_shared<Hero>("Warrior"));
-    heroes.push_back(std::make_shared<Hero>("Mage"));
+void Game::initHeroPool() {
+    heroPool.clear();
+    heroPool.push_back(std::make_shared<Hero>("Archer"));
+    heroPool.push_back(std::make_shared<Hero>("Warrior"));
+    heroPool.push_back(std::make_shared<Hero>("Mage"));
+    heroPool.push_back(std::make_shared<Hero>("Rogue"));
+    heroPool.push_back(std::make_shared<Hero>("Cleric"));
+    heroPool.push_back(std::make_shared<Hero>("Paladin"));
+}
+
+void Game::chooseHeroes() {
+    // Configurar números aleatorios
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+
+    // Barajar el pool de héroes
+    std::shuffle(heroPool.begin(), heroPool.end(), gen);
+    heroes.assign(heroPool.begin(), heroPool.begin() + 3); //tomar 2 primeros despues de shuffle
+
+    // Mostrar selección
+    std::cout << "\nHeroes seleccionados aleatoriamente:\n";
+    for (auto& h : heroes) {
+        std::cout << " - " << h->getName()
+                  << " | HP: "   << h->getHP()
+                  << " | ATK: "  << h->getAttack()
+                  << " | DEF: "  << h->getDefense()
+                  << " | LCK: "  << h->getLuck()
+                  << " | SPD: "  << h->getSpeed()
+                  << "\n";
+    }
 }
 
 void Game::initEnemies() {

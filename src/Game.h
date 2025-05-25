@@ -14,12 +14,14 @@ public:
     Game();
     void run();
 private:
-    void initHeroes();
+    void initHeroPool();    // esto es pa crear los 6
+    void chooseHeroes();    // escoger 3
     void initEnemies();
     void showMenu();
     void nextRoom();
 
-    std::vector<std::shared_ptr<Hero>> heroes;
+    std::vector<std::shared_ptr<Hero>> heroPool;  // 6
+    std::vector<std::shared_ptr<Hero>> heroes;    // 3
     std::vector<std::shared_ptr<Enemy>> enemies;
     Inventory inventory;
     ScoreManager scoreMgr;
