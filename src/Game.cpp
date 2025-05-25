@@ -95,25 +95,41 @@ void Game::nextRoom() {
         return;
     }
 
+    // Guardar HP inicial para calcular HP perdido
     int hpBefore = currentHero->getHP();
 
-    auto enemy = enemies[(currentRoom - 1) % enemies.size()];
+    // Selección de enemigo según la sala
+    std::shared_ptr<Enemy> enemy;
+    if (currentRoom == 8) {
+        // Sala 8: siempre Mini Jefe
+        enemy = std::make_shared<MiniBoss>();
+    }
+    else if (currentRoom == 10) {
+        // Sala final (10): siempre Gran Jefe
+        enemy = std::make_shared<BigBoss>();
+    }
+    else {
+        // Otras salas: del pool de 15 enemigos
+        enemy = enemies[(currentRoom - 1) % enemies.size()];
+    }
+
+    // Combate por turnos
     while (enemy->isAlive() && currentHero->isAlive()) {
         currentHero->attack(*enemy);
         if (!enemy->isAlive()) break;
         enemy->attack(*currentHero);
     }
 
+    // Calcular HP perdido y actualizar score
     int hpLost = hpBefore - currentHero->getHP();
     totalHpLost += hpLost;
     score += 10;
     std::cout << "Room " << currentRoom << " cleared! ("
               << currentHero->getName()
-              << " perdio " << hpLost << " HP)\n";
+              << " perdió " << hpLost << " HP)\n";
 
     currentRoom++;
 }
-
 
 void Game::run() {
     bool running = true;
