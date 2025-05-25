@@ -128,6 +128,13 @@ void Game::nextRoom() {
               << currentHero->getName()
               << " perdió " << hpLost << " HP)\n";
 
+    // aqui es donde aumenta ese 2%
+    for (auto& h : heroes) {
+        if (h->isAlive()) {
+            h->increaseAttackPercent(2.0);   // +2% ATK
+            h->increaseDefensePercent(2.0);  // +2% DEF
+        }
+    }
     currentRoom++;
 }
 

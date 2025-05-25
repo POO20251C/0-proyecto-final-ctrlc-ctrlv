@@ -21,6 +21,9 @@ public:
     int getLuck()    const;
     int getSpeed()   const;
 
+    void increaseAttackPercent(double percent); //aumenta 2%
+    void increaseDefensePercent(double percent); //aumenta 2%
+
 protected:
     std::string name;
     int hp;

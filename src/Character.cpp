@@ -38,3 +38,11 @@ int Character::getLuck() const {
 int Character::getSpeed() const {
     return spd;
 }
+
+void Character::increaseAttackPercent(double percent) {
+    atk = static_cast<int>(atk * (1.0 + percent / 100.0));
+}
+
+void Character::increaseDefensePercent(double percent) {
+    def = static_cast<int>(def * (1.0 + percent / 100.0));
+}
