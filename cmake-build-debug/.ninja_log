@@ -1,3 +1,22 @@
 # ninja log v6
 6	580	7691413589864227	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
 582	731	7691413595617318	ProyectoFinalPOO.exe	baf14897a185670b
+32	951	7698585484818554	CMakeFiles/ProyectoFinalPOO.dir/src/Item.cpp.obj	e9c57954ab80df9a
+15	994	7698585484648561	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	f17ccb988cc6d37a
+8	1423	7698585484578007	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
+43	1452	7698585484928562	CMakeFiles/ProyectoFinalPOO.dir/src/Inventory.cpp.obj	12bcfd8b7e24e74a
+951	1735	7698585494005076	CMakeFiles/ProyectoFinalPOO.dir/src/ScoreManager.cpp.obj	38f8f4e5d4ad9bb8
+9	777	7698588636121623	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	f17ccb988cc6d37a
+18	881	7698588636211680	CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj	95dded8bb9b2e17b
+14	884	7698588636171631	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	d2eed4b6fdd8525c
+5	1135	7698588636071617	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
+23	1454	7698588636251633	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
+1454	1868	7698588650571690	ProyectoFinalPOO.exe	38f1415e4bf0346f
+6	1098	7698598026925063	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
+1098	1304	7698598037841843	ProyectoFinalPOO.exe	38f1415e4bf0346f
+11	1210	7698608920712708	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	f17ccb988cc6d37a
+20	1266	7698608920802713	CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj	95dded8bb9b2e17b
+16	1300	7698608920762742	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	d2eed4b6fdd8525c
+6	1536	7698608920652705	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
+24	1796	7698608920842712	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
+1796	2005	7698608938554653	ProyectoFinalPOO.exe	38f1415e4bf0346f
