@@ -17,4 +17,10 @@ add_executable(ProyectoFinalPOO main.cpp
         src/ScoreManager.cpp
         src/ScoreManager.h
         src/Game.cpp
-        src/Game.h)
+        src/Game.h
+        src/Soldier.cpp
+        src/Soldier.h
+        src/MiniBoss.cpp
+        src/MiniBoss.h
+        src/BigBoss.cpp
+        src/BigBoss.h)

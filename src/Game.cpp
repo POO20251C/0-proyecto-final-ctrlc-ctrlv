@@ -1,5 +1,8 @@
 // Game.cpp
 #include "Game.h"
+#include "Soldier.h"
+#include "MiniBoss.h"
+#include "BigBoss.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -47,9 +50,19 @@ void Game::chooseHeroes() {
 }
 
 void Game::initEnemies() {
-    for (int i = 0; i < 15; ++i) {
-        enemies.push_back(std::make_shared<Enemy>("Goblin", 50, 10, 3, 5, 15));
-    }
+    enemies.clear();
+
+    // 10 soldados
+    for (int i = 0; i < 10; ++i)
+        enemies.push_back(std::make_shared<Soldier>());
+
+    //  3 mini jefes (siempre)
+    for (int i = 0; i < 3; ++i)
+        enemies.push_back(std::make_shared<MiniBoss>());
+
+    //  2 grandes jefes
+    for (int i = 0; i < 2; ++i)
+        enemies.push_back(std::make_shared<BigBoss>());
 }
 
 void Game::showMenu() {

@@ -97,6 +97,24 @@ build CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj: CXX_COMPILER__ProyectoFi
   OBJECT_DIR = CMakeFiles\ProyectoFinalPOO.dir
   OBJECT_FILE_DIR = CMakeFiles\ProyectoFinalPOO.dir\src
 
+build CMakeFiles/ProyectoFinalPOO.dir/src/Soldier.cpp.obj: CXX_COMPILER__ProyectoFinalPOO_unscanned_Debug C$:/Users/karen/OneDrive/Escritorio/ProyectoFinalPOO/src/Soldier.cpp || cmake_object_order_depends_target_ProyectoFinalPOO
+  DEP_FILE = CMakeFiles\ProyectoFinalPOO.dir\src\Soldier.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinalPOO.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinalPOO.dir\src
+
+build CMakeFiles/ProyectoFinalPOO.dir/src/MiniBoss.cpp.obj: CXX_COMPILER__ProyectoFinalPOO_unscanned_Debug C$:/Users/karen/OneDrive/Escritorio/ProyectoFinalPOO/src/MiniBoss.cpp || cmake_object_order_depends_target_ProyectoFinalPOO
+  DEP_FILE = CMakeFiles\ProyectoFinalPOO.dir\src\MiniBoss.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinalPOO.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinalPOO.dir\src
+
+build CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj: CXX_COMPILER__ProyectoFinalPOO_unscanned_Debug C$:/Users/karen/OneDrive/Escritorio/ProyectoFinalPOO/src/BigBoss.cpp || cmake_object_order_depends_target_ProyectoFinalPOO
+  DEP_FILE = CMakeFiles\ProyectoFinalPOO.dir\src\BigBoss.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinalPOO.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinalPOO.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProyectoFinalPOO
@@ -105,7 +123,7 @@ build CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj: CXX_COMPILER__ProyectoFi
 #############################################
 # Link the executable ProyectoFinalPOO.exe
 
-build ProyectoFinalPOO.exe: CXX_EXECUTABLE_LINKER__ProyectoFinalPOO_Debug CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Item.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Inventory.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/ScoreManager.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj
+build ProyectoFinalPOO.exe: CXX_EXECUTABLE_LINKER__ProyectoFinalPOO_Debug CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Item.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Inventory.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/ScoreManager.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/Soldier.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/MiniBoss.cpp.obj CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProyectoFinalPOO.dir
