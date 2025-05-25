@@ -7,7 +7,7 @@ Hero::Hero(const std::string& name)
 
 void Hero::attack(Character& target) {
     // simple damage formula
-    int damage = atk - target.getDefense() / 2;
+    double  damage = atk - target.getDefense() / 2;
     if (damage < 0) damage = 0;
     target.takeDamage(damage);
     std::cout << name << " hits " << target.getName() << " for " << damage << " damage.\n";

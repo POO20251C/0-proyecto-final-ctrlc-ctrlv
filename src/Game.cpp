@@ -8,7 +8,7 @@
 #include <ctime>
 #include <algorithm>
 #include <random>
-
+#include <iomanip>  // para std::fixed y std::setprecision
 
 Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
@@ -96,7 +96,7 @@ void Game::nextRoom() {
     }
 
     // Guardar HP inicial para calcular HP perdido
-    int hpBefore = currentHero->getHP();
+    double hpBefore = currentHero->getHP();
 
     // Selección de enemigo según la sala
     std::shared_ptr<Enemy> enemy;
@@ -121,7 +121,7 @@ void Game::nextRoom() {
     }
 
     // Calcular HP perdido y actualizar score
-    int hpLost = hpBefore - currentHero->getHP();
+    double hpLost = hpBefore - currentHero->getHP();
     totalHpLost += hpLost;
     score += 10;
     std::cout << "Room " << currentRoom << " cleared! ("
@@ -148,14 +148,13 @@ void Game::run() {
             case 1:
                 std::cout << "\n-- Heroes Status --\n";
                 for (auto& h : heroes)
-                    std::cout
-                        << h->getName()
-                        << " | HP: " << h->getHP()
-                        << " | ATK: " << h->getAttack()
-                        << " | DEF: " << h->getDefense()
-                        << " | LCK: " << h->getLuck()
-                        << " | SPD: " << h->getSpeed()
-                        << "\n";
+                    std::cout << h->getName()
+                      << " | HP: "  << std::fixed << std::setprecision(1) << h->getHP()
+                      << " | ATK: " << h->getAttack()
+                      << " | DEF: " << h->getDefense()
+                      << " | LCK: " << h->getLuck()
+                      << " | SPD: " << h->getSpeed()
+                      << std::defaultfloat << "\n";
                 break;
             case 2:
                 nextRoom();

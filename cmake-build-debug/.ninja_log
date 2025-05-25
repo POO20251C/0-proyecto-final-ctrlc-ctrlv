@@ -24,3 +24,12 @@
 883	1505	7698637960851592	CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj	90bf87af575b7a4f
 46	2142	7698637952478560	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
 2142	2470	7698637973434494	ProyectoFinalPOO.exe	ce91418279cd5bbb
+55	929	7698646602728310	CMakeFiles/ProyectoFinalPOO.dir/src/Soldier.cpp.obj	902715854301bc47
+34	1046	7698646602518295	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	f17ccb988cc6d37a
+40	1240	7698646602578316	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	d2eed4b6fdd8525c
+44	1256	7698646602618318	CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj	95dded8bb9b2e17b
+30	1626	7698646602468317	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
+1046	1878	7698646612645784	CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj	90bf87af575b7a4f
+930	1897	7698646611473685	CMakeFiles/ProyectoFinalPOO.dir/src/MiniBoss.cpp.obj	ec26508eb2820db7
+50	2601	7698646602678310	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
+2602	2861	7698646628197090	ProyectoFinalPOO.exe	ce91418279cd5bbb
