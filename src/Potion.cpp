@@ -1,7 +1,7 @@
 // Potion.cpp
 #include "Potion.h"
 
-Potion::Potion(const std::string& name, int hpRestore)
+Potion::Potion(const std::string& name, double hpRestore)
     : Item(name, ItemType::POTION, hpRestore) {}
 
 void Potion::applyEffect(Character& character) {

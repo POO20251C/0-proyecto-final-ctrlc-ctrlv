@@ -9,7 +9,7 @@ class Accessory : public Item {
 
 public:
 
-    Accessory(const std::string& name, int spd);
+    Accessory(const std::string& name, double spd);
     void applyEffect(Character& character) override;
 };
 

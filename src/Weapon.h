@@ -10,7 +10,7 @@ private:
     int bonusLck;
 
 public:
-    Weapon(const std::string& name, int atk, int lck);
+    Weapon(const std::string& name, double atk, double lck);
     void applyEffect(Character& character) override;
 };
 

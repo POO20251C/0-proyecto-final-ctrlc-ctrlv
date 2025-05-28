@@ -11,7 +11,7 @@ private:
 
 public:
 
-    Armor(const std::string& name, int def, int hp);
+    Armor(const std::string& name, double def, double hp);
     void applyEffect(Character& character) override;
 };
 

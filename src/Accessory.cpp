@@ -1,7 +1,7 @@
 // Accessory.cpp
 #include "Accessory.h"
 
-Accessory::Accessory(const std::string& name, int spd)
+Accessory::Accessory(const std::string& name, double spd)
     : Item(name, ItemType::ACCESSORY, spd) {}
 
 void Accessory::applyEffect(Character& character) {
