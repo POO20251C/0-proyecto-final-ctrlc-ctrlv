@@ -5,5 +5,5 @@ Accessory::Accessory(const std::string& name, double spd)
     : Item(name, ItemType::ACCESSORY, spd) {}
 
 void Accessory::applyEffect(Character& character) {
-    character.setSpd(character.getSpd() + getValue());
+    character.setSpeed(character.getSpeed() + getValue());
 }

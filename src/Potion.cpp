@@ -1,9 +1,9 @@
 // Potion.cpp
 #include "Potion.h"
 
-Potion::Potion(const std::string& name, double hpRestore)
-    : Item(name, ItemType::POTION, hpRestore) {}
+Potion::Potion(const std::string& name, double hp)
+    : Item(name, ItemType::POTION, hp) {}
 
 void Potion::applyEffect(Character& character) {
-    character.setHp(character.getHp() + getValue());
+    character.setHP(character.getHP() + getValue());
 }

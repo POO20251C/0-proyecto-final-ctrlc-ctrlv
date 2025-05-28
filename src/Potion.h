@@ -6,9 +6,11 @@
 #include "Character.h"
 
 class Potion : public Item {
+private:
+    double bonusHP;
 
 public:
-    Potion(const std::string& name, double hpRestore);
+    Potion(const std::string& name, double hp);
     void applyEffect(Character& character) override;
 };
 

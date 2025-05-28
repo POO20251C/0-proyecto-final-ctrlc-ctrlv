@@ -23,6 +23,14 @@ public:
     void increaseAttackPercent(double percent);
     void increaseDefensePercent(double percent);
 
+    // Para que tengan efecto los items
+    void setHP(double hp); // void -> double para una prueba
+    void setAttack(double atk);
+    void setDefense(double def);
+    void setLuck(double lck);
+    void setSpeed(double spd);
+
+
 protected:
     std::string name;
     double      hp;   // ahora double
@@ -31,5 +39,6 @@ protected:
     double      lck;  // ahora double
     double      spd;  // ahora double
 };
+
 
 #endif // CHARACTER_H
