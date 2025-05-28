@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2024.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\karen\OneDrive\Escritorio\ProyectoFinalPOO -B C:\Users\karen\OneDrive\Escritorio\ProyectoFinalPOO\cmake-build-debug
--- Configuring done (0.2s)
--- Generating done (0.1s)
--- Build files have been written to: C:/Users/karen/OneDrive/Escritorio/ProyectoFinalPOO/cmake-build-debug
+"D:\Programas\CLion 2024.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "C:\Users\Usuario\OneDrive - PUJ Cali\Documents\Carrera Ing. Biomedica\Semestre VII\POO\Proyecto\0-proyecto-final-ctrlc-ctrlv" -B "C:\Users\Usuario\OneDrive - PUJ Cali\Documents\Carrera Ing. Biomedica\Semestre VII\POO\Proyecto\0-proyecto-final-ctrlc-ctrlv\cmake-build-debug"
+-- Configuring done (0.8s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/Usuario/OneDrive - PUJ Cali/Documents/Carrera Ing. Biomedica/Semestre VII/POO/Proyecto/0-proyecto-final-ctrlc-ctrlv/cmake-build-debug

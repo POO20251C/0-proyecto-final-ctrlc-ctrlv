@@ -23,4 +23,17 @@ add_executable(ProyectoFinalPOO main.cpp
         src/MiniBoss.cpp
         src/MiniBoss.h
         src/BigBoss.cpp
-        src/BigBoss.h)
+        src/BigBoss.h
+
+        src/Weapon.h
+        src/Weapon.cpp
+        src/Armor.h
+        src/Armor.cpp
+        src/Potion.h
+        src/Potion.cpp
+        src/Accessory.h
+        src/Accessory.cpp
+        src/Amulet.h
+        src/Amulet.cpp
+
+)
