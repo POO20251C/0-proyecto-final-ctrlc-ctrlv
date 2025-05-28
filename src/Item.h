@@ -17,7 +17,7 @@ public:
     double getValue() const; // int -> double
 
     virtual void applyEffect(Character& character) = 0; // aplica el efecto de los items al personaje
-
+    void printInfo() const; // muestra la info
 
 private:
     std::string name;
