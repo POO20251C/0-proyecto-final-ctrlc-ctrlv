@@ -10,11 +10,45 @@
 #include <random>
 #include <iomanip>  // para std::fixed y std::setprecision
 
+#include "Potion.h"
+#include "Weapon.h"
+#include "Amulet.h"
+
 Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
     initHeroPool();    // 6
     chooseHeroes();    // 3
     initEnemies();
+
+    // Crear ítems iniciales
+    inventory.addItem(std::make_shared<Potion>("Small Potion", 20));
+    inventory.addItem(std::make_shared<Weapon>("Iron Sword", 5, 2));
+    inventory.addItem(std::make_shared<Amulet>("Lucky Charm", 3, 4));
+}
+
+void Game::useItemMenu() { // Usar items
+    inventory.listItems();
+    std::cout << "Seleccione el ítem: ";
+    int itemIndex;
+    std::cin >> itemIndex;
+
+    std::cout << "Seleccione el héroe:";    // Modificado para mostrar todos los atributos del heroe
+    for (size_t i = 0; i < heroes.size(); ++i) {
+        std::cout << i << ": " << heroes[i]->getName()
+                  << " | HP: " << heroes[i]->getHP()
+                  << " | ATK: " << heroes[i]->getAttack()
+                  << " | DEF: " << heroes[i]->getDefense()
+                  << " | LCK: " << heroes[i]->getLuck()
+                  << " | SPD: " << heroes[i]->getSpeed() << "\n";
+    }
+    int heroIndex;
+    std::cin >> heroIndex;
+
+    if (heroIndex < 0 || heroIndex >= static_cast<int>(heroes.size())) {
+        std::cout << "Índice de héroe inválido.\n";
+        return;
+    }
+    inventory.useItem(itemIndex, *heroes[heroIndex]);
 }
 
 void Game::initHeroPool() {
@@ -70,9 +104,12 @@ void Game::showMenu() {
               << "1. Show Heroes\n"
               << "2. Proceed to Next Room\n"
               << "3. Show Inventory\n"
-              << "4. Exit\n"
+              << "4. Use Item\n" // Agregado para usar los items
+              << "5. Exit\n"
               << "Choose an option: ";
+
 }
+
 
 
 void Game::nextRoom() {
@@ -122,7 +159,7 @@ void Game::nextRoom() {
 
     // Calcular HP perdido y actualizar score
     double hpLost = hpBefore - currentHero->getHP();
-    totalHpLost += hpLost;
+    totalHpLost += hpLost;                              // REVISAR AQUI PENDIENTE
     score += 10;
     std::cout << "Room " << currentRoom << " cleared! ("
               << currentHero->getName()
@@ -166,7 +203,10 @@ void Game::run() {
             case 3:
                 inventory.listItems();
                 break;
-            case 4:
+            case 4: // Agregado para usar un item
+                useItemMenu();
+                break;
+            case 5:
                 running = false;
                 break;
             default:

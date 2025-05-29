@@ -2,16 +2,25 @@
 #include "Inventory.h"
 #include <iostream>
 
-void Inventory::addItem(std::shared_ptr<Item> item) {
+void Inventory::addItem(std::shared_ptr<Item> item) {  // pendiente pulir aqui la sugerencia
     items.push_back(item);
     std::cout << "Added item: " << item->getName() << "\n";
 }
 
 void Inventory::listItems() const {
+
+    // Se modifico toda la funcion para poner en uso la funcion de mostrar toda la info del item
+
     std::cout << "Inventory:\n";
+    for (size_t i = 0; i < items.size(); ++i) {
+        std::cout << i << ". ";
+        items[i]->printInfo();
+    }
+
+    /*std::cout << "Inventory:\n";
     for (const auto& item : items) {
         std::cout << " - " << item->getName() << "\n";
-    }
+    }*/
 }
 
 // Usar el item que escoja.

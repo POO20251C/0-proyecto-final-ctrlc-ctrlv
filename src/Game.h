@@ -22,6 +22,8 @@ private:
     void showMenu();
     void nextRoom();
 
+    void useItemMenu(); // Para usar items en el personaje
+
     std::vector<std::shared_ptr<Hero>> heroPool;  // 6
     std::vector<std::shared_ptr<Hero>> heroes;    // 3
     std::vector<std::shared_ptr<Enemy>> enemies;
