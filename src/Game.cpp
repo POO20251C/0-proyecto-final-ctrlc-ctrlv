@@ -13,6 +13,8 @@
 #include "Potion.h"
 #include "Weapon.h"
 #include "Amulet.h"
+#include "Accessory.h"
+#include "Armor.h"
 
 Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
@@ -27,6 +29,12 @@ Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
 }
 
 void Game::useItemMenu() { // Usar items
+
+    if (inventory.isEmpty()) {    // No puede usar items si esta vacio el inventario
+        std::cout << "No hay ítems en el inventario.\n";
+        return;
+    }
+
     inventory.listItems();
     std::cout << "Seleccione el ítem: ";
     int itemIndex;
@@ -119,6 +127,13 @@ void Game::nextRoom() {
     }
     std::cout << "Entering Room " << currentRoom << "...\n";
 
+        // Preambulo para las salas especiales
+    std::cout << "\n=== Welcome to " << currentRoom << " ===\n";
+    if (currentRoom == 1) std::cout << "Starting Market\n";
+    if (currentRoom == 3) std::cout << "Enigmatic Chest\n";
+    if (currentRoom == 6) std::cout << "Treasure Room\n";
+    if (currentRoom == 8) std::cout << "Holy Grail\n";
+
     // Seleccionar el próximo héroe vivo
     std::shared_ptr<Hero> currentHero = nullptr;
     for (auto& h : heroes) {
@@ -172,6 +187,41 @@ void Game::nextRoom() {
             h->increaseDefensePercent(2.0);  // +2% DEF
         }
     }
+
+
+    // Asignacion de items a las salas correspondientes
+    if (currentRoom == 3) {
+        std::cout << "Recompensa disponible: \n"
+                     "1. Accesorio (+2 LCK)\n"
+                     "2. 3 Pociones (+25 HP cada una)\n"
+                     "Elige una opción (1 o 2): ";
+        int choice;
+        std::cin >> choice;
+        if (choice == 1) {
+            inventory.addItem(std::make_shared<Accessory>("Silver Ring", 2));
+            std::cout << "Has recibido un Silver Ring (+2 LCK).\n";
+        } else {
+            for (int i = 0; i < 3; ++i) {
+                inventory.addItem(std::make_shared<Potion>("Healing Potion", 25));
+            }
+            std::cout << "Has recibido 3 Healing Potions (+25 HP cada una).\n";
+        }
+    }
+    else if (currentRoom == 6) {
+        for (auto& h : heroes) {
+            inventory.addItem(std::make_shared<Weapon>("Rare Blade", 8, 5));
+        }
+        std::cout << "Recompensa: Cada héroe recibió un arma rara (+8 ATK, +5 LCK)!\n";
+    }
+    else if (currentRoom == 8) {
+        for (auto& h : heroes) {
+            h->setHP(100);
+        }
+        std::cout << "El Santo Grial ha restaurado completamente la salud de tus héroes!\n";
+    }
+
+
+
     currentRoom++;
 }
 

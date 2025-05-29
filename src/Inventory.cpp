@@ -33,3 +33,7 @@ void Inventory::useItem(int index, Character& target) {
     std::cout << "Used item: " << items[index]->getName() << " on " << target.getName() << "\n";
     items.erase(items.begin() + index);
 }
+
+bool Inventory::isEmpty() const {
+    return items.empty();
+}
