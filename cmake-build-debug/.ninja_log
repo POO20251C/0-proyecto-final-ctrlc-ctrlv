@@ -1,0 +1,47 @@
+# ninja log v6
+171	3859	7703128952985454	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	8ef41246361c7d87
+3973	4506	7703132167591895	ProyectoFinalPOO.exe	a8f71e63791f1f41
+4031	5246	7702819821681313	CMakeFiles/ProyectoFinalPOO.dir/src/ScoreManager.cpp.obj	29f73f4a11a44c81
+2784	4031	7702819809209994	CMakeFiles/ProyectoFinalPOO.dir/src/Item.cpp.obj	534af28d9cedddbf
+23	2876	7702819781595388	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	7d8d5643cc8805b0
+2877	4627	7702819810139297	CMakeFiles/ProyectoFinalPOO.dir/src/Inventory.cpp.obj	ff42516d721253b7
+198	3499	7703128953251380	CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj	d5ee0205b198ec46
+190	3518	7703128953173221	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	4fd84814314f6b59
+17	3971	7703132128039563	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	fd8b03b77aa3948b
+3860	5179	7703128989876682	CMakeFiles/ProyectoFinalPOO.dir/src/MiniBoss.cpp.obj	d2cd2a73c6b277bd
+4955	6036	7703129000825930	CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj	2dfdadaf638e9865
+<<<<<<< HEAD
+3501	8289	7703128986291978	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	fd8b03b77aa3948b
+17	3971	7703132128039563	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	fd8b03b77aa3948b
+3973	4506	7703132167591895	ProyectoFinalPOO.exe	a8f71e63791f1f41
+16	4049	7703159941473152	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	4fd84814314f6b59
+25	7860	7703159941572402	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	fd8b03b77aa3948b
+7860	9195	7703160019917851	ProyectoFinalPOO.exe	a8f71e63791f1f41
+=======
+3518	4955	7703128986456035	CMakeFiles/ProyectoFinalPOO.dir/src/Soldier.cpp.obj	ae4d2bdf5a42d82a
+8802	9907	7702819869392435	CMakeFiles/ProyectoFinalPOO.dir/src/Amulet.cpp.obj	fa47d40639bdea42
+6381	7677	7702819845185464	CMakeFiles/ProyectoFinalPOO.dir/src/Weapon.cpp.obj	c0b736619abea3f2
+6528	7950	7702819846652138	CMakeFiles/ProyectoFinalPOO.dir/src/Armor.cpp.obj	4d15b26df3bdd288
+7677	9105	7702819858137382	CMakeFiles/ProyectoFinalPOO.dir/src/Potion.cpp.obj	75a0084357758244
+7950	9331	7702819860873494	CMakeFiles/ProyectoFinalPOO.dir/src/Accessory.cpp.obj	c19ff6d50daf772d
+<<<<<<< HEAD
+73	2738	7703152854952815	CMakeFiles/ProyectoFinalPOO.dir/src/Character.cpp.obj	f17ccb988cc6d37a
+102	3181	7703152855232846	CMakeFiles/ProyectoFinalPOO.dir/src/Hero.cpp.obj	d2eed4b6fdd8525c
+133	3251	7703152855548116	CMakeFiles/ProyectoFinalPOO.dir/src/Enemy.cpp.obj	95dded8bb9b2e17b
+158	3568	7703152855798090	CMakeFiles/ProyectoFinalPOO.dir/src/Item.cpp.obj	e9c57954ab80df9a
+171	4675	7703152855928102	CMakeFiles/ProyectoFinalPOO.dir/src/Inventory.cpp.obj	12bcfd8b7e24e74a
+42	4907	7703152854692824	CMakeFiles/ProyectoFinalPOO.dir/main.cpp.obj	7a43ae169a90c18b
+3251	5899	7703152886732559	CMakeFiles/ProyectoFinalPOO.dir/src/Soldier.cpp.obj	902715854301bc47
+3568	6235	7703152889894394	CMakeFiles/ProyectoFinalPOO.dir/src/MiniBoss.cpp.obj	ec26508eb2820db7
+2740	6605	7703152882051356	CMakeFiles/ProyectoFinalPOO.dir/src/ScoreManager.cpp.obj	38f8f4e5d4ad9bb8
+4676	7369	7703152900992051	CMakeFiles/ProyectoFinalPOO.dir/src/BigBoss.cpp.obj	90bf87af575b7a4f
+4907	7415	7703152903287533	CMakeFiles/ProyectoFinalPOO.dir/src/Weapon.cpp.obj	593d93499c223cb5
+5899	8552	7703152913208365	CMakeFiles/ProyectoFinalPOO.dir/src/Armor.cpp.obj	a6987155a3fb5766
+6236	9127	7703152916578469	CMakeFiles/ProyectoFinalPOO.dir/src/Potion.cpp.obj	1f3354685b3f4c46
+6606	9525	7703152920269526	CMakeFiles/ProyectoFinalPOO.dir/src/Accessory.cpp.obj	6ac3c5aef67fbf5c
+7369	10019	7703152927915888	CMakeFiles/ProyectoFinalPOO.dir/src/Amulet.cpp.obj	b2151bed4a8158f1
+3183	11074	7703152886042566	CMakeFiles/ProyectoFinalPOO.dir/src/Game.cpp.obj	9ed6e3620701f812
+11075	11704	7703152964964821	ProyectoFinalPOO.exe	f5a025721db8c6aa
+=======
+>>>>>>> f7d0c08a1646ba2993b351dbcd30130f3f5e581c
+>>>>>>> fd24ae57f168ba20cc8868c8135a88ebfb19e63a
