@@ -147,7 +147,7 @@ void Game::nextRoom() {
     }
     std::cout << "Entering Room " << currentRoom << "...\n";
 
-        // Preambulo para las salas especiales
+    // Preambulo para las salas especiales
     std::cout << "\n=== Welcome to " << currentRoom << " ===\n";
     if (currentRoom == 1) std::cout << "Starting Market\n";
     if (currentRoom == 3) std::cout << "Enigmatic Chest\n";
