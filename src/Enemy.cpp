@@ -11,3 +11,4 @@ void Enemy::attack(Character& target) {
     target.takeDamage(damage);
     std::cout << name << " strikes " << target.getName() << " for " << damage << " damage.\n";
 }
+

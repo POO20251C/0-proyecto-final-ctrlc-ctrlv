@@ -15,6 +15,8 @@
 #include "Amulet.h"
 #include "Accessory.h"
 #include "Armor.h"
+#include <cstdlib>  // rand()
+#include <ctime>    // time()
 
 Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
@@ -27,14 +29,13 @@ Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
     inventory.addItem(std::make_shared<Weapon>("Iron Sword", 5, 2));
     inventory.addItem(std::make_shared<Amulet>("Lucky Charm", 3, 4));
 }
-
+//______________________________________________________________________________________________
 void Game::useItemMenu() { // Usar items
 
     if (inventory.isEmpty()) {    // No puede usar items si esta vacio el inventario
         std::cout << "No hay ítems en el inventario.\n";
         return;
     }
-
     inventory.listItems();
     std::cout << "Seleccione el ítem: ";
     int itemIndex;
@@ -58,6 +59,25 @@ void Game::useItemMenu() { // Usar items
     }
     inventory.useItem(itemIndex, *heroes[heroIndex]);
 }
+// Para la jugabilidad de la suerte -> devuelve true si el golpe acierta, false si falla
+bool Game::hit(double attackerLuck, double defenderLuck) {
+    double hitProbability = attackerLuck - defenderLuck;
+    if (hitProbability > 95.0)
+        hitProbability = 95.0; // Para que nunca haya un 100% ni un 0%
+    if (hitProbability < 5.0)
+        hitProbability = 5.0;
+    double roll = static_cast<double>(rand() % 100) + 1; // Random 1-100
+    return roll <= hitProbability; // true o false, y llega al ataque
+}
+
+double Game::calcularProbAcierto(double attackerLuck, double defenderLuck) {
+    double chance = 50.0 + (attackerLuck - defenderLuck);
+    if (chance > 95.0) chance = 95.0;
+    if (chance < 5.0)  chance = 5.0;
+    return chance;
+}
+
+//______________________________________________________________________________________
 
 void Game::initHeroPool() {
     heroPool.clear();
@@ -143,7 +163,7 @@ void Game::nextRoom() {
         }
     }
     if (!currentHero) {
-        std::cout << "Todos tus héroes han caído. Game Over.\n";
+        std::cout << "Todos tus heroes han caído. Game Over.\n";
         return;
     }
 
@@ -166,10 +186,85 @@ void Game::nextRoom() {
     }
 
     // Combate por turnos
-    while (enemy->isAlive() && currentHero->isAlive()) {
+    /*while (enemy->isAlive() && currentHero->isAlive()) {
         currentHero->attack(*enemy);
         if (!enemy->isAlive()) break;
         enemy->attack(*currentHero);
+    }*/
+
+    // Combate por turnos modificado
+    /*while (enemy->isAlive() && currentHero->isAlive()) {
+
+        std::cout << "\n=== COMBAT ===\n";                 // Me muestra el estado del combate
+        std::cout << currentHero->getName() << " (HP: " << currentHero->getHP()
+                  << ")  vs  " << enemy->getName() << " (HP: " << enemy->getHP() << ")\n";
+
+
+        // Mostrar HP antes del ataque del héroe
+        std::cout << "\n[HP Antes del Ataque] "
+                  << currentHero->getName() << ": " << currentHero->getHP() << " | "
+                  << "Enemy: " << enemy->getHP() << "\n";
+
+        // ----> Prueba para aplicar la probabilidad de ataque con la suerte
+        if (hit(currentHero->getLuck(), enemy->getLuck())) {
+            currentHero->attack(*enemy);
+        } else {
+            std::cout << currentHero->getName() << " missed the attack!\n";
+        }
+
+        // Mostrar HP después del ataque del héroe
+        std::cout << "[HP Despues del Ataque] "
+                  << currentHero->getName() << ": " << currentHero->getHP() << " | "
+                  << "Enemy: " << enemy->getHP() << "\n";
+
+        if (!enemy->isAlive()) break;
+
+        // Mostrar HP antes del ataque del enemigo
+        std::cout << "\n[HP Antes del Ataque] "
+                  << currentHero->getName() << ": " << currentHero->getHP() << " | "
+                  << "Enemy: " << enemy->getHP() << "\n";
+
+        if (hit(enemy->getLuck(), currentHero->getLuck())) {
+            enemy->attack(*currentHero);
+        } else {
+            std::cout << enemy->getName() << " missed the attack!\n";
+        }
+
+        // Mostrar HP después del ataque del enemigo
+        std::cout << "[HP Despues del Ataque] "
+                  << currentHero->getName() << ": " << currentHero->getHP() << " | "
+                  << "Enemigo: " << enemy->getHP() << "\n";
+    }*/
+    while (enemy->isAlive() && currentHero->isAlive()) {
+        std::cout << "\n=== COMBAT ===\n";
+        std::cout << currentHero->getName() << " (HP: " << currentHero->getHP()
+                  << ")  vs  " << enemy->getName() << " (HP: " << enemy->getHP() << ")\n";
+
+        // Hero's turn
+        double probHero = calcularProbAcierto(currentHero->getLuck(), enemy->getLuck());
+        std::cout << "Chance to hit (" << currentHero->getName() << " attacking): " << probHero << "%\n";
+        if (hit(currentHero->getLuck(), enemy->getLuck())) {
+            currentHero->attack(*enemy);
+        } else {
+            std::cout << currentHero->getName() << " missed the attack!\n";
+        }
+
+        std::cout << currentHero->getName() << " HP: " << currentHero->getHP()
+                  << " | " << enemy->getName() << " HP: " << enemy->getHP() << "\n";
+
+        if (!enemy->isAlive()) break;
+
+        // Enemy's turn
+        double probEnemy = calcularProbAcierto(enemy->getLuck(), currentHero->getLuck());
+        std::cout << "\nChance to hit (" << enemy->getName() << " attacking): " << probEnemy << "%\n";
+        if (hit(enemy->getLuck(), currentHero->getLuck())) {
+            enemy->attack(*currentHero);
+        } else {
+            std::cout << enemy->getName() << " missed the attack!\n";
+        }
+
+        std::cout << currentHero->getName() << " HP: " << currentHero->getHP()
+                  << " | " << enemy->getName() << " HP: " << enemy->getHP() << "\n";
     }
 
     // Calcular HP perdido y actualizar score
@@ -178,7 +273,7 @@ void Game::nextRoom() {
     score += 10;
     std::cout << "Room " << currentRoom << " cleared! ("
               << currentHero->getName()
-              << " perdió " << hpLost << " HP)\n";
+              << " perdio " << hpLost << " HP)\n";
 
     // aqui es donde aumenta ese 2%
     for (auto& h : heroes) {
@@ -194,7 +289,7 @@ void Game::nextRoom() {
         std::cout << "Recompensa disponible: \n"
                      "1. Accesorio (+2 LCK)\n"
                      "2. 3 Pociones (+25 HP cada una)\n"
-                     "Elige una opción (1 o 2): ";
+                     "Elige una opcion (1 o 2): ";
         int choice;
         std::cin >> choice;
         if (choice == 1) {
@@ -211,17 +306,14 @@ void Game::nextRoom() {
         for (auto& h : heroes) {
             inventory.addItem(std::make_shared<Weapon>("Rare Blade", 8, 5));
         }
-        std::cout << "Recompensa: Cada héroe recibió un arma rara (+8 ATK, +5 LCK)!\n";
+        std::cout << "Recompensa: Cada heroe recibio un arma rara (+8 ATK, +5 LCK)!\n";
     }
     else if (currentRoom == 8) {
         for (auto& h : heroes) {
             h->setHP(100);
         }
-        std::cout << "El Santo Grial ha restaurado completamente la salud de tus héroes!\n";
+        std::cout << "El Santo Grial ha restaurado completamente la salud de tus heroes!\n";
     }
-
-
-
     currentRoom++;
 }
 

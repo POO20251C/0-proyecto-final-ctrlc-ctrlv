@@ -31,6 +31,8 @@ public:
     void setSpeed(double spd);
 
 
+
+
 protected:
     std::string name;
     double      hp;   // ahora double

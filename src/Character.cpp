@@ -1,6 +1,7 @@
 // Character.cpp
 #include "Character.h"
 
+
 Character::Character(const std::string& name, double  hp, double  atk, double  def, double  lck, double  spd)
     : name(name), hp(hp), atk(atk), def(def), lck(lck), spd(spd) {}
 
@@ -68,3 +69,7 @@ void Character::setLuck(double value) {
 void Character::setSpeed(double value) {
     spd = value;
 }
+
+
+
+
