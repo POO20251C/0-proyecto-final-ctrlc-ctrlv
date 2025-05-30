@@ -11,14 +11,20 @@
 
 class Game {
 public:
+
     Game();
     void run();
+
 private:
-    void initHeroPool();    // esto es pa crear los 6
+    void initHeroPool();    // esto es pa crear los 6 ----> <3
     void chooseHeroes();    // escoger 3
     void initEnemies();
     void showMenu();
     void nextRoom();
+
+    void useItemMenu(); // Para usar items en el personaje
+    bool hit(double attackerLuck, double defenderLuck); // relaciona los ataques con la suerte
+    double calcularProbAcierto(double attackerLuck, double defenderLuck);
 
     std::vector<std::shared_ptr<Hero>> heroPool;  // 6
     std::vector<std::shared_ptr<Hero>> heroes;    // 3

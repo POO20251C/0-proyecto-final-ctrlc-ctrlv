@@ -1,6 +1,7 @@
 // Character.cpp
 #include "Character.h"
 
+
 Character::Character(const std::string& name, double  hp, double  atk, double  def, double  lck, double  spd)
     : name(name), hp(hp), atk(atk), def(def), lck(lck), spd(spd) {}
 
@@ -46,3 +47,29 @@ void Character::increaseAttackPercent(double percent) {
 void Character::increaseDefensePercent(double percent) {
     def = static_cast<int>(def * (1.0 + percent / 100.0));
 }
+
+// Agregados para que los items tengan efecto
+
+void Character::setHP(double value) {
+    hp = value;
+}
+
+void Character::setAttack(double value) {
+    atk = value;
+}
+
+void Character::setDefense(double value) {
+    def = value;
+}
+
+void Character::setLuck(double value) {
+    lck = value;
+}
+
+void Character::setSpeed(double value) {
+    spd = value;
+}
+
+
+
+
