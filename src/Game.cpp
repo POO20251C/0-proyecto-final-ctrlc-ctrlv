@@ -26,8 +26,8 @@ Game::Game() : currentRoom(1), score(0), totalHpLost(0) {
 
     // Crear ítems iniciales
     inventory.addItem(std::make_shared<Potion>("Small Potion", 20));
-    inventory.addItem(std::make_shared<Weapon>("Iron Sword", 5, 2));
-    inventory.addItem(std::make_shared<Amulet>("Lucky Charm", 3, 4));
+    inventory.addItem(std::make_shared<Weapon>("Iron Sword", 30, 15));
+    inventory.addItem(std::make_shared<Amulet>("Lucky Charm", 35, 20));
 }
 //______________________________________________________________________________________________
 void Game::useItemMenu() { // Usar items
@@ -137,7 +137,6 @@ void Game::showMenu() {
               << "Choose an option: ";
 
 }
-
 
 
 void Game::nextRoom() {

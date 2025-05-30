@@ -4,7 +4,7 @@
 
 
 Hero::Hero(const std::string& name)
-    : Character(name, 100, 20, 5, 10, 15) {}
+    : Character(name, 100, 30, 10, 40, 20) {}
 
 void Hero::attack(Character& target) {
     // Prueba de funcionalidad del ataque en esta clase -> Nota: no funciono
